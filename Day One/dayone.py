@@ -1,6 +1,7 @@
 #Set file path
 filename = "input.txt"
 
+
 #Read input into an array
 with open(filename) as file:
     lines = [line.rstrip() for line in file]
@@ -27,15 +28,13 @@ for rotation in lines :
     
     currentPos += clicks
 
-    print("testing :: " + str(currentPos))
-    if(currentPos > 99) :
-        currentPos = (currentPos % 99) - 1
-    elif (currentPos < 0) :
-        currentPos = 100 + currentPos
-    
-    if (currentPos == 0) :
+
+    currentPos = (100 + currentPos) % 100
+
+    if(currentPos == 0) :
+        print("Ping!")
         password += 1
     
     print(f"Ending Position :: {currentPos}\n\n")
 
-print("This is the password :: " + str(password))
+print(f"Password :: {password}")
